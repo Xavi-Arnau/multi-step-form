@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import Progress from "./components/Progress";
+import Step1 from "./components/Step1";
+import Step2 from "./components/Step2";
+import Step3 from "./components/Step3";
+import Step4 from "./components/Step4";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-magnolia h-screen md:pt-[15vh]">
+      <div className="md:w-3/5 mx-auto bg-magnolia md:bg-white rounded-xl min-h-[60vh] flex flex-col md:flex-row md:p-4 shadow-xl">
+        <Progress />
+
+        <Step4 />
+      </div>
     </div>
   );
 }
