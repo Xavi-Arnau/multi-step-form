@@ -1,8 +1,16 @@
 import React from "react";
 import sidebarDesktop from "../assets/bg-sidebar-desktop.svg";
 import sidebarMobile from "../assets/bg-sidebar-mobile.svg";
+import { useRegFormContext } from "../contexts/RegFormContext";
 
 const Progress = () => {
+  const [state] = useRegFormContext();
+  console.log(state);
+  const renderProgress = (current) => {
+    return state.progress === current
+      ? "bg-lightBlue border-marineBlue text-marineBlue"
+      : "border-white text-white";
+  };
   return (
     <>
       <div
@@ -12,7 +20,10 @@ const Progress = () => {
         {/* start step */}
 
         <div className="flex gap-4 py-4">
-          <div className="rounded-full bg-lightBlue border-2 border-marineBlue text-marineBlue font-bold w-10 h-10 flex items-center justify-center">
+          <div
+            className={`${renderProgress(1)} rounded-full border-2 font-bold 
+          w-10 h-10 flex items-center justify-center`}
+          >
             <span>1</span>
           </div>
           <div className="flex flex-col justify-center">
@@ -26,7 +37,10 @@ const Progress = () => {
         {/* start step */}
 
         <div className="flex gap-4 py-4">
-          <div className="rounded-full border-2 border-white text-white font-bold w-10 h-10 flex items-center justify-center">
+          <div
+            className={`${renderProgress(2)} rounded-full border-2 font-bold 
+          w-10 h-10 flex items-center justify-center`}
+          >
             <span>2</span>
           </div>
           <div className="flex flex-col justify-center">
@@ -40,7 +54,10 @@ const Progress = () => {
         {/* start step */}
 
         <div className="flex gap-4 py-4">
-          <div className="rounded-full border-2 border-white text-white font-bold w-10 h-10 flex items-center justify-center">
+          <div
+            className={`${renderProgress(3)} rounded-full border-2 font-bold 
+          w-10 h-10 flex items-center justify-center`}
+          >
             <span>3</span>
           </div>
           <div className="flex flex-col justify-center">
@@ -54,7 +71,10 @@ const Progress = () => {
         {/* start step */}
 
         <div className="flex gap-4 py-4">
-          <div className="rounded-full border-2 border-white text-white font-bold w-10 h-10 flex items-center justify-center">
+          <div
+            className={`${renderProgress(4)} rounded-full border-2 font-bold 
+          w-10 h-10 flex items-center justify-center`}
+          >
             <span>4</span>
           </div>
           <div className="flex flex-col justify-center">

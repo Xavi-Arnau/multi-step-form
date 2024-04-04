@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useRegFormContext } from "../contexts/RegFormContext";
+import { useNavigate } from "react-router-dom";
 
 const Step4 = () => {
+  const [state, dispatch] = useRegFormContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch({ type: "CHANGE_PROGRESS", data: 4 });
+  }, [dispatch]);
   return (
     <div className="w-11/12 mx-auto md:w-2/3 rounded-xl md:rounded-none md:mt-0 -mt-20 bg-white h-screen md:h-auto">
       <div className="p-8">
@@ -57,7 +65,10 @@ const Step4 = () => {
 
         {/* start buttons */}
         <div className="flex justify-between mt-8">
-          <button className="bg-white text-marineBlue py-4 px-8 rounded-lg font-bold">
+          <button
+            onClick={() => navigate("/addons")}
+            className="bg-white text-marineBlue py-4 px-8 rounded-lg font-bold"
+          >
             Go Back
           </button>
           <button className="bg-marineBlue text-white py-4 px-8 rounded-lg font-bold">
