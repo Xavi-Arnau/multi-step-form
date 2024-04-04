@@ -98,7 +98,13 @@ const Step2 = () => {
         <div className="bg-magnolia w-full mt-8">
           <div className="flex items-center p-4 justify-center">
             <div className=" inline-block px-4">
-              <p className="font-bold text-marineBlue text-base">Monthly</p>
+              <p
+                className={`font-bold ${
+                  !state?.plan?.yearly ? "text-marineBlue" : "text-coolGray"
+                } text-base`}
+              >
+                Monthly
+              </p>
             </div>
             <div className="inline-block px-4">
               <form action="">
@@ -113,7 +119,13 @@ const Step2 = () => {
               </form>
             </div>
             <div className=" inline-block px-4">
-              <p className="font-bold text-coolGray text-base">Yearly</p>
+              <p
+                className={`font-bold ${
+                  state?.plan?.yearly ? "text-marineBlue" : "text-coolGray"
+                } text-base`}
+              >
+                Yearly
+              </p>
             </div>
           </div>
         </div>
