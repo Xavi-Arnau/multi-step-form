@@ -4,6 +4,7 @@ import advanced from "../assets/icon-advanced.svg";
 import pro from "../assets/icon-pro.svg";
 import { useRegFormContext } from "../contexts/RegFormContext";
 import { useNavigate } from "react-router-dom";
+import { plans } from "../data";
 
 const Step2 = () => {
   const [state, dispatch] = useRegFormContext();
@@ -40,6 +41,20 @@ const Step2 = () => {
       : "border-lightGray";
   };
 
+  const renderPrice = (name) => {
+    const plan = plans.find((item) => item.name === name);
+    if (state?.plan?.yearly) {
+      return (
+        <>
+          <p className="text-base text-coolGray">${plan.yearly}/yr</p>
+          <p className="text-sm text marineBlue">2 months free</p>
+        </>
+      );
+    } else {
+      return <p className="text-base text-coolGray">${plan.monthly}/mo</p>;
+    }
+  };
+
   return (
     <div className="w-11/12 mx-auto md:w-2/3 rounded-xl md:rounded-none md:mt-0 -mt-20 bg-white h-screen md:h-auto">
       <div className="p-8">
@@ -60,8 +75,8 @@ const Step2 = () => {
           >
             <img src={arcade} alt="" className="md:mb-14 w-12" />
             <div className="py-2 px-8 md:p-0">
-              <p className="font-bold text-marineBlue text-base">Arcade</p>
-              <p className="text-sm text-coolGray">$9/mo</p>
+              <p className="font-bold text-marineBlue text-xl">Arcade</p>
+              {renderPrice("arcade")}
             </div>
           </div>
           {/* end box */}
@@ -74,8 +89,8 @@ const Step2 = () => {
           >
             <img src={advanced} alt="" className="md:mb-14 w-12" />
             <div className="py-2 px-8 md:p-0">
-              <p className="font-bold text-marineBlue text-base">Advanced</p>
-              <p className="text-sm text-coolGray">$12/mo</p>
+              <p className="font-bold text-marineBlue text-xl">Advanced</p>
+              {renderPrice("advanced")}
             </div>
           </div>
           {/* end box */}
@@ -88,8 +103,8 @@ const Step2 = () => {
           >
             <img src={pro} alt="" className="md:mb-14 w-12" />
             <div className="py-2 px-8 md:p-0">
-              <p className="font-bold text-marineBlue text-base">Pro</p>
-              <p className="text-sm text-coolGray">$15/mo</p>
+              <p className="font-bold text-marineBlue text-xl">Pro</p>
+              {renderPrice("pro")}
             </div>
           </div>
           {/* end box */}

@@ -8,10 +8,29 @@ const Step3 = () => {
 
   useEffect(() => {
     dispatch({ type: "CHANGE_PROGRESS", data: 3 });
+    if (!state.addons) {
+      dispatch({
+        type: "PICK_ADD-ONS",
+        data: {
+          onlineService: false,
+          localStorage: false,
+          customizableProfile: false,
+        },
+      });
+    }
   }, [dispatch]);
 
   const onSubmit = () => {
     navigate("/finishing");
+  };
+  const handleToggleAddons = (addon) => {
+    dispatch({
+      type: "PICK_ADD-ONS",
+      data: {
+        ...state.addons,
+        [addon]: !state.addons[addon],
+      },
+    });
   };
   return (
     <div className="w-11/12 mx-auto md:w-2/3 rounded-xl md:rounded-none md:mt-0 -mt-20 bg-white h-screen md:h-auto">
@@ -28,6 +47,8 @@ const Step3 = () => {
           <div className="border-2 border-purplishBlue flex flex-row items-center p-4 rounded-lg">
             <div className="w-1/5">
               <input
+                onChange={() => handleToggleAddons("onlineService")}
+                defaultChecked={state?.addons?.onlineService}
                 type="checkbox"
                 name=""
                 id=""
@@ -51,6 +72,8 @@ const Step3 = () => {
           <div className="border-2 border-purplishBlue flex flex-row items-center p-4 rounded-lg">
             <div className="w-1/5">
               <input
+                onChange={() => handleToggleAddons("localStorage")}
+                defaultChecked={state?.addons?.localStorage}
                 type="checkbox"
                 name=""
                 id=""
@@ -72,6 +95,8 @@ const Step3 = () => {
           <div className="border-2 border-purplishBlue flex flex-row items-center p-4 rounded-lg">
             <div className="w-1/5">
               <input
+                onChange={() => handleToggleAddons("customizableProfile")}
+                defaultChecked={state?.addons?.customizableProfile}
                 type="checkbox"
                 name=""
                 id=""

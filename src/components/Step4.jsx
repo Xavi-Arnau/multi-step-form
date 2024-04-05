@@ -9,6 +9,9 @@ const Step4 = () => {
   useEffect(() => {
     dispatch({ type: "CHANGE_PROGRESS", data: 4 });
   }, [dispatch]);
+  const onSubmit = () => {
+    navigate("/thankyou");
+  };
   return (
     <div className="w-11/12 mx-auto md:w-2/3 rounded-xl md:rounded-none md:mt-0 -mt-20 bg-white h-screen md:h-auto">
       <div className="p-8">
@@ -26,7 +29,12 @@ const Step4 = () => {
               <p className="font-bold text-marineBlue text-base">
                 Arcade(Monthly)
               </p>
-              <p className="text-sm text-coolGray">Change</p>
+              <p
+                onClick={() => navigate("/plan")}
+                className="text-sm text-coolGray"
+              >
+                Change
+              </p>
             </div>
             <div>
               <p className="font-bold text-marineBlue text-base">$9/mo</p>
@@ -71,7 +79,10 @@ const Step4 = () => {
           >
             Go Back
           </button>
-          <button className="bg-marineBlue text-white py-4 px-8 rounded-lg font-bold">
+          <button
+            onClick={onSubmit}
+            className="bg-marineBlue text-white py-4 px-8 rounded-lg font-bold"
+          >
             Confirm
           </button>
         </div>
