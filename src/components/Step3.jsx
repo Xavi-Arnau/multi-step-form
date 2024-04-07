@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useRegFormContext } from "../contexts/RegFormContext";
 import { useNavigate } from "react-router-dom";
+import { addons } from "../data";
 
 const Step3 = () => {
   const [state, dispatch] = useRegFormContext();
@@ -31,6 +32,14 @@ const Step3 = () => {
         [addon]: !state.addons[addon],
       },
     });
+  };
+  const renderPrice = (name) => {
+    const addon = addons.find((item) => item.name === name);
+    if (state?.plan?.yearly) {
+      return <span>{`+$${addon.yearly}/yr`}</span>;
+    } else {
+      return <span>{`+$${addon.monthly}/mo`}</span>;
+    }
   };
   return (
     <div className="w-11/12 mx-auto md:w-2/3 rounded-xl md:rounded-none md:mt-0 -mt-20 bg-white h-screen md:h-auto">
@@ -64,7 +73,9 @@ const Step3 = () => {
               </p>
             </div>
             <div className="w-1/5">
-              <p className="font-bold text-purplishBlue text-base">+$1/mo</p>
+              <p className="font-bold text-purplishBlue text-base">
+                {renderPrice("onlineService")}
+              </p>
             </div>
           </div>
           {/* end buttons */}
@@ -87,7 +98,9 @@ const Step3 = () => {
               <p className="text-sm text-coolGray">Extra 1TB of cloud save</p>
             </div>
             <div className="w-1/5">
-              <p className="font-bold text-purplishBlue text-base">+$2/mo</p>
+              <p className="font-bold text-purplishBlue text-base">
+                {renderPrice("localStorage")}
+              </p>
             </div>
           </div>
           {/* end buttons */}
@@ -112,7 +125,9 @@ const Step3 = () => {
               </p>
             </div>
             <div className="w-1/5">
-              <p className="font-bold text-purplishBlue text-base">+$2/mo</p>
+              <p className="font-bold text-purplishBlue text-base">
+                {renderPrice("customizableProfile")}
+              </p>
             </div>
           </div>
           {/* end buttons */}
