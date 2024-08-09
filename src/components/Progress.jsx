@@ -13,7 +13,7 @@ const Progress = () => {
   };
   return (
     <>
-      <div className="hidden md:block w-1/4">
+      <div id="progress" className="hidden md:block w-1/4">
         <div
           className="w-full h-full bg-cover bg-no-repeat p-8 flex flex-col rounded-xl"
           style={{ backgroundImage: `url(${sidebarDesktop})` }}
@@ -23,7 +23,7 @@ const Progress = () => {
           <div className="flex gap-4 py-4">
             <div
               className={`${renderProgress(1)} rounded-full border-2 font-bold 
-          w-10 h-10 flex items-center justify-center`}
+          w-10 h-10 flex items-center justify-center step`}
             >
               <span>1</span>
             </div>
@@ -40,7 +40,7 @@ const Progress = () => {
           <div className="flex gap-4 py-4">
             <div
               className={`${renderProgress(2)} rounded-full border-2 font-bold 
-          w-10 h-10 flex items-center justify-center`}
+          w-10 h-10 flex items-center justify-center step`}
             >
               <span>2</span>
             </div>
@@ -57,7 +57,7 @@ const Progress = () => {
           <div className="flex gap-4 py-4">
             <div
               className={`${renderProgress(3)} rounded-full border-2 font-bold 
-          w-10 h-10 flex items-center justify-center`}
+          w-10 h-10 flex items-center justify-center step`}
             >
               <span>3</span>
             </div>
@@ -74,7 +74,7 @@ const Progress = () => {
           <div className="flex gap-4 py-4">
             <div
               className={`${renderProgress(4)} rounded-full border-2 font-bold 
-          w-10 h-10 flex items-center justify-center`}
+          w-10 h-10 flex items-center justify-center step`}
             >
               <span>4</span>
             </div>
